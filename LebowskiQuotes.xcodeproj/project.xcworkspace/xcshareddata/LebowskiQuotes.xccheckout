@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3790F49A-E355-41C1-948B-DD4D62D0B93D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LebowskiQuotes</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>17364D1E327E90F1900384294F36246D8D148533</key>
+		<string>github.com:aackerman/LebowskiQuotes.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LebowskiQuotes.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>17364D1E327E90F1900384294F36246D8D148533</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:aackerman/LebowskiQuotes.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>17364D1E327E90F1900384294F36246D8D148533</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>17364D1E327E90F1900384294F36246D8D148533</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LebowskiQuotes</string>
+		</dict>
+	</array>
+</dict>
+</plist>

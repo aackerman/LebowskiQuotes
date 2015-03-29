@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 var STRING_CAMELIZE_REGEXP = (/(\-|_|\.|\s)+(.)?/g);
 
 var camelize = (key) => {
@@ -88,7 +86,7 @@ class Adapter {
     }
 
     // find by query if an object is provided
-    if ( _.isPlainObject(params) ) {
+    if (typeof params === 'object') {
       return this.findQuery(typeKey, params);
     }
 

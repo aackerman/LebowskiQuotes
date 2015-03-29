@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var Adapter = require('./adapter');
+var Button = require('./button');
 var {
   AppRegistry,
   StyleSheet,
@@ -67,7 +68,7 @@ var LebowskiQuotes = React.createClass({
   },
 
   renderLine(line) {
-    let DUDE = 'The Dude';
+    var DUDE = 'The Dude';
 
     var alignment;
     var messageBackgroundColor;
@@ -129,40 +130,15 @@ var LebowskiQuotes = React.createClass({
         <View>
           <ScrollView style={{paddingTop: 20}} scrollEnabled={true}>
             {this.state.lines.map(this.renderLine)}
-            <View style={styles.container}>
-              <Button onClick={this.getRandomQuote}>Get random quote</Button>
-              <Button onClick={this.getNextQuote}>Get next quote</Button>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <Button onClick={this.getPrevQuote}>Previous</Button>
+              <Button onClick={this.getRandomQuote}>Random</Button>
+              <Button onClick={this.getNextQuote}>Next</Button>
             </View>
           </ScrollView>
         </View>
       );
     }
-  }
-});
-
-var Button = React.createClass({
-  propTypes: {
-    onClick: React.PropTypes.func.isRequired,
-    children: React.PropTypes.string.isRequired
-  },
-
-  render() {
-    var styles = {
-      button: {
-        padding: 10,
-        borderRadius: 5,
-        backgroundColor: '#EFEFEF'
-      }
-    };
-
-    return (
-      <TouchableHighlight
-        style={styles.button}
-        underlayColor='#EFEFEF'
-        onPress={this.props.onClick}>
-        <Text>{this.props.children}</Text>
-      </TouchableHighlight>
-    )
   }
 });
 
