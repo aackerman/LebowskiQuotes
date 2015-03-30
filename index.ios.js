@@ -23,7 +23,8 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF'
   }
 });
 
@@ -42,7 +43,15 @@ var LebowskiQuotes = React.createClass({
         lines: res.quote.lines,
         loaded: true
       });
+    }).catch((err) => {
+      console.log(err);
+    }).catch((err) => {
+      console.log(err);
     });
+  },
+
+  getPrevQuote() {
+    this.getQuote(this.state.quote.id - 1);
   },
 
   getNextQuote() {
@@ -60,9 +69,7 @@ var LebowskiQuotes = React.createClass({
   renderLoadingView: function() {
     return (
       <View style={styles.container}>
-        <Text>
-          Loading Quotes...
-        </Text>
+        <Text>Loading Quotes...</Text>
       </View>
     );
   },
@@ -102,6 +109,8 @@ var LebowskiQuotes = React.createClass({
       'Kieffer': '',
       'Maude Lebowski': '',
       'Younger Cop': '',
+      'Smokey': 'http://2.bp.blogspot.com/-sYUDfBi8tJ8/TiNsUXNKlRI/AAAAAAAAAJk/5_8OFD17EQg/s640/BigLebowski_065Pyxurz.jpg',
+      'The Jesus': 'http://www.nientepopcorn.it/wp-content/uploads/2014/11/il_grande_lebowski_torna_al_cinema_00_jesus.jpg',
       'Uli Kunkel': 'http://content7.flixster.com/question/45/71/76/4571761_std.jpg',
       'Bunny': 'http://www.btchflcks.com/wp-content/uploads/2013/10/62.jpg',
       'Lebowski': 'http://students.greshamhs.org/10/osheam/lebowski/jeffrey-lebowski1.jpg',
@@ -127,16 +136,14 @@ var LebowskiQuotes = React.createClass({
       return this.renderLoadingView();
     } else {
       return (
-        <View>
-          <ScrollView style={{paddingTop: 20}} scrollEnabled={true}>
-            {this.state.lines.map(this.renderLine)}
-            <View style={{flex: 1, flexDirection: 'row'}}>
-              <Button onClick={this.getPrevQuote}>Previous</Button>
-              <Button onClick={this.getRandomQuote}>Random</Button>
-              <Button onClick={this.getNextQuote}>Next</Button>
-            </View>
-          </ScrollView>
-        </View>
+        <ScrollView style={{paddingTop: 20, marginBottom: 20}} scrollEnabled={true}>
+          {this.state.lines.map(this.renderLine)}
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <Button style={{flex: 1, alignSelf: 'flex-start', margin: 3}} onClick={this.getPrevQuote}>Previous</Button>
+            <Button style={{flex: 1, alignSelf: 'center', margin: 3}} onClick={this.getRandomQuote}>Random</Button>
+            <Button style={{flex: 1, alignSelf: 'flex-end', margin: 3}} onClick={this.getNextQuote}>Next</Button>
+          </View>
+        </ScrollView>
       );
     }
   }

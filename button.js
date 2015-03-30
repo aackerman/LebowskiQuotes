@@ -25,9 +25,9 @@ var Button = React.createClass({
     return (
       <TouchableHighlight
         style={styles.button}
-        underlayColor='#EFEFEF'
+        underlayColor='#CFCFCF'
         onPress={this.props.onClick}>
-        <Text>{this.props.children}</Text>
+        <Text style={{textAlign: 'center'}}>{this.props.children}</Text>
       </TouchableHighlight>
     )
   }
