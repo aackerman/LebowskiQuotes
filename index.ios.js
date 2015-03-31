@@ -100,22 +100,29 @@ var LebowskiQuotes = React.createClass({
     };
 
     var characters = {
-      'The Stranger': 'http://1.bp.blogspot.com/-nCrgPeZvo2c/TiNvBaSvPdI/AAAAAAAAALY/L40Ju5ERhuo/s1600/BigLebowski_145Pyxurz.jpg',
-      'Walter': 'http://blog.tomgrover.net/wp-content/uploads/2010/04/walter.jpg',
-      'Donny': 'http://viralcircus.com/wp-content/uploads/2014/01/3xsGO4m.jpg',
-      'Brandt': 'http://content6.flixster.com/question/37/32/66/3732668_std.jpg',
-      'Blonde Thug': 'http://www.aviewfromtheedge.net/lost2010/wp-content/uploads/2010/01/MarkPellegrinoLOST2.jpg',
-      'Woo': 'http://media.schadenfreude.net/2009/10/lebowskirug.jpg',
-      'Kieffer': '',
-      'Maude Lebowski': '',
-      'Younger Cop': '',
-      'Smokey': 'http://2.bp.blogspot.com/-sYUDfBi8tJ8/TiNsUXNKlRI/AAAAAAAAAJk/5_8OFD17EQg/s640/BigLebowski_065Pyxurz.jpg',
-      'The Jesus': 'http://www.nientepopcorn.it/wp-content/uploads/2014/11/il_grande_lebowski_torna_al_cinema_00_jesus.jpg',
-      'Uli Kunkel': 'http://content7.flixster.com/question/45/71/76/4571761_std.jpg',
-      'Bunny': 'http://www.btchflcks.com/wp-content/uploads/2013/10/62.jpg',
-      'Lebowski': 'http://students.greshamhs.org/10/osheam/lebowski/jeffrey-lebowski1.jpg',
-      'The Dude': 'http://vignette3.wikia.nocookie.net/thebiglebowski/images/7/7e/The_Dude.jpeg/revision/latest?cb=20111216183045'
+      'The Stranger': require('image!the_stranger'),
+      'Walter': require('image!walter'),
+      'Donny': require('image!donny'),
+      'Brandt': require('image!brandt'),
+      'Blonde Thug': require('image!blonde_thug'),
+      'Woo': require('image!woo'),
+      'Kieffer': require('image!kieffer'),
+      'Maude Lebowski': require('image!maude_lebowski'),
+      'Marty': require('image!marty'),
+      'Police Chief of Malibu': require('image!police_chief_of_malibu'),
+      'Smokey': require('image!smokey'),
+      'The Dude': require('image!the_dude'),
+      'Younger Cop': require('image!younger_cop'),
+      'Older Cop': require('image!older_cop'),
+      // 'The Jesus': 'http://www.nientepopcorn.it/wp-content/uploads/2014/11/il_grande_lebowski_torna_al_cinema_00_jesus.jpg',
+      // 'Uli Kunkel': 'http://content7.flixster.com/question/45/71/76/4571761_std.jpg',
+      // 'Bunny': 'http://www.btchflcks.com/wp-content/uploads/2013/10/62.jpg',
+      // 'Lebowski': 'http://students.greshamhs.org/10/osheam/lebowski/jeffrey-lebowski1.jpg',
     };
+
+    if (characters[line.character.name] === undefined) {
+      throw new Error('Missing image for ' + line.character.name);
+    }
 
     return (
       <View style={{paddingBottom: 10, paddingLeft: 5, paddingRight: 5}}>
@@ -126,7 +133,7 @@ var LebowskiQuotes = React.createClass({
         </View>
         <Image
           style={styles.icon}
-          source={{uri: characters[line.character.name]}} />
+          source={characters[line.character.name]} />
       </View>
     );
   },
