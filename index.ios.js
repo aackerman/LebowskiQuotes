@@ -156,8 +156,8 @@ var LebowskiQuotes = React.createClass({
       </Text>
 
     return (
-      <View style={{paddingBottom: 10, paddingLeft: 5, paddingRight: 5}}>
-        <View key={line.id} style={{paddingBottom: 3}}>
+      <View key={line.id} style={{paddingBottom: 10, paddingLeft: 5, paddingRight: 5}}>
+        <View style={{paddingBottom: 3}}>
           <View style={{ borderRadius: 10, backgroundColor: messageBackgroundColor, padding: 8, alignSelf: alignment }}>
             <Text style={{textAlign: 'left', color: messageTextColor}}>{line.text}</Text>
           </View>
