@@ -100,6 +100,21 @@ var LebowskiQuotes = React.createClass({
     };
 
     var characters = {
+       'Franz': require('image!franz'),
+       'Policeman': require('image!policeman'),
+       'George Bush': require('image!george_bush'),
+       'Donnelly': require('image!donnelly'),
+       'Tony': require('image!tony'),
+       'Jackie Treehorn': require('image!jackie_treehorn'),
+       'Da Fino': require('image!da_fino'),
+       'Pilar': require('image!pilar'),
+       'Bunny': require('image!bunny'),
+       // Cab Driver
+       // Fred Dynarski
+       // Gary
+       // Corvette Owner
+       // Waitress
+       // Doctor
       'The Stranger': require('image!the_stranger'),
       'Walter': require('image!walter'),
       'Donny': require('image!donny'),
@@ -114,14 +129,13 @@ var LebowskiQuotes = React.createClass({
       'The Dude': require('image!the_dude'),
       'Younger Cop': require('image!younger_cop'),
       'Older Cop': require('image!older_cop'),
-      // 'The Jesus': 'http://www.nientepopcorn.it/wp-content/uploads/2014/11/il_grande_lebowski_torna_al_cinema_00_jesus.jpg',
-      // 'Uli Kunkel': 'http://content7.flixster.com/question/45/71/76/4571761_std.jpg',
-      // 'Bunny': 'http://www.btchflcks.com/wp-content/uploads/2013/10/62.jpg',
-      // 'Lebowski': 'http://students.greshamhs.org/10/osheam/lebowski/jeffrey-lebowski1.jpg',
+      'The Jesus': require('image!the_jesus'),
+      'Uli Kunkel': require('image!uli_kunkel'),
+      'Lebowski': require('image!lebowski'),
     };
 
     if (characters[line.character.name] === undefined) {
-      throw new Error('Missing image for ' + line.character.name);
+      console.warn('Missing image for ' + line.character.name);
     }
 
     return (
@@ -131,9 +145,12 @@ var LebowskiQuotes = React.createClass({
             <Text style={{textAlign: 'left', color: messageTextColor}}>{line.text}</Text>
           </View>
         </View>
-        <Image
-          style={styles.icon}
-          source={characters[line.character.name]} />
+        <View>
+          <Image
+            style={styles.icon}
+            source={characters[line.character.name]} />
+          <Text style={{color: '#000000', backgroundColor: '#FFFFFF'}}>{line.character.name}</Text>
+        </View>
       </View>
     );
   },
