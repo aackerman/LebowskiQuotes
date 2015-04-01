@@ -178,7 +178,7 @@ var LebowskiQuotes = React.createClass({
       return this.renderLoadingView();
     } else {
       return (
-        <ScrollView style={{paddingTop: 20, marginBottom: 20}} scrollEnabled={true}>
+        <ScrollView style={{marginTop: 20, paddingBottom: 20}} scrollEnabled={true}>
           {this.state.lines.map(this.renderLine)}
           <View style={{flex: 1, flexDirection: 'row'}}>
             <Button style={{flex: 1, alignSelf: 'flex-start', margin: 3}} onClick={this.getPrevQuote}>Previous</Button>
