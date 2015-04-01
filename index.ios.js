@@ -80,11 +80,14 @@ var LebowskiQuotes = React.createClass({
     var alignment;
     var messageBackgroundColor;
     var messageTextColor;
+    var imageOnLeft;
     if (line.character.name == DUDE) {
+      imageOnLeft = true;
       alignment = 'flex-start';
       messageBackgroundColor = '#E5E4E9';
       messageTextColor= '#000000';
     } else {
+      imageOnLeft = false;
       alignment = 'flex-end';
       messageTextColor= '#FFFFFF';
       messageBackgroundColor = '#2095FE';
@@ -96,25 +99,34 @@ var LebowskiQuotes = React.createClass({
         height: 50,
         borderRadius: 5,
         alignSelf: alignment
+      },
+      characterName: {
+        flex: 1,
+        margin: 5,
+        marginTop: 15,
+        textAlign: imageOnLeft ? 'left' : 'right',
+        alignSelf: 'stretch',
+        backgroundColor: '#FFFFFF',
+        color: '#000000'
       }
     };
 
     var characters = {
-       'Franz': require('image!franz'),
-       'Policeman': require('image!policeman'),
-       'George Bush': require('image!george_bush'),
-       'Donnelly': require('image!donnelly'),
-       'Tony': require('image!tony'),
-       'Jackie Treehorn': require('image!jackie_treehorn'),
-       'Da Fino': require('image!da_fino'),
-       'Pilar': require('image!pilar'),
-       'Bunny': require('image!bunny'),
-       // Cab Driver
-       // Fred Dynarski
-       // Gary
-       // Corvette Owner
-       // Waitress
-       // Doctor
+      'Franz': require('image!franz'),
+      'Policeman': require('image!policeman'),
+      'George Bush': require('image!george_bush'),
+      'Donnelly': require('image!donnelly'),
+      'Tony': require('image!tony'),
+      'Jackie Treehorn': require('image!jackie_treehorn'),
+      'Da Fino': require('image!da_fino'),
+      'Pilar': require('image!pilar'),
+      'Bunny': require('image!bunny'),
+      'Cab Driver': require('image!tony'),
+      'Fred Dynarski': { uri: undefined },
+      'Gary': { uri: undefined },
+      'Corvette Owner': require('image!corvette_owner'),
+      'Waitress': require('image!waitress'),
+      'Doctor': require('image!doctor'),
       'The Stranger': require('image!the_stranger'),
       'Walter': require('image!walter'),
       'Donny': require('image!donny'),
@@ -138,6 +150,11 @@ var LebowskiQuotes = React.createClass({
       console.warn('Missing image for ' + line.character.name);
     }
 
+    var characterName =
+      <Text style={styles.characterName}>
+        {line.character.name}
+      </Text>
+
     return (
       <View style={{paddingBottom: 10, paddingLeft: 5, paddingRight: 5}}>
         <View key={line.id} style={{paddingBottom: 3}}>
@@ -145,11 +162,12 @@ var LebowskiQuotes = React.createClass({
             <Text style={{textAlign: 'left', color: messageTextColor}}>{line.text}</Text>
           </View>
         </View>
-        <View>
+        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+          {!imageOnLeft && characterName}
           <Image
             style={styles.icon}
             source={characters[line.character.name]} />
-          <Text style={{color: '#000000', backgroundColor: '#FFFFFF'}}>{line.character.name}</Text>
+          {imageOnLeft && characterName}
         </View>
       </View>
     );
