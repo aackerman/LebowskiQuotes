@@ -36,7 +36,7 @@ var LebowskiQuotes = React.createClass({
     };
   },
 
-  getQuote(id) {
+  getQuote(id: String) {
     rest.find('quotes', id).then((res) => {
       this.setState({
         quote: res.quote,
